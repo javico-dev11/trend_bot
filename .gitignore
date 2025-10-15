@@ -1,0 +1,57 @@
+# Crypto Trend Detector - Git Ignore
+
+# Entornos virtuales
+myenv/
+venv/
+env/
+ENV/
+test_env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Credenciales y configuración sensible
+.env
+.env.local
+config.ini
+secrets.json
+*.key
+*.pem
+
+# Logs
+*.log
+logs/
+
+# Datos temporales
+*.csv
+*.xlsx
+data/
+temp/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
