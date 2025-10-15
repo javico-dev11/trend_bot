@@ -1,0 +1,27 @@
+# Crypto Trend Detector - Configuración de Variables de Entorno
+# Copia este archivo como .env y configura tus valores
+
+# ============================================================================
+# TELEGRAM BOT
+# ============================================================================
+# Token del bot de Telegram (obtenerlo de @BotFather)
+TELEGRAM_BOT_TOKEN=8246019704:AAGi8nshsuSJMl5zJWeXH28OvnpDyWDTCGk
+
+# ============================================================================
+# EXCHANGE (Opcional - Solo si quieres trading automático en futuro)
+# ============================================================================
+# API Keys del exchange (NUNCA compartir estas claves)
+# BYBIT_API_KEY=tu_api_key_aqui
+# BYBIT_API_SECRET=tu_api_secret_aqui
+
+# ============================================================================
+# CONFIGURACIÓN GENERAL
+# ============================================================================
+# Exchange por defecto (bybit, binance, okx, kucoin)
+DEFAULT_EXCHANGE=bybit
+
+# Timeframes para análisis (separados por comas)
+# ANALYSIS_TIMEFRAMES=5m,15m,1h,4h
+
+# Modo de logging (DEBUG, INFO, WARNING, ERROR)
+# LOG_LEVEL=INFO

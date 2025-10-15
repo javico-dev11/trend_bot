@@ -8,6 +8,12 @@ ccxt>=4.0.0
 pandas>=2.0.0
 numpy>=1.24.0
 
+# Telegram Bot
+python-telegram-bot>=20.0
+
+# Opcional: Para configuración con archivos .env
+# python-dotenv>=1.0.0
+
 # Opcional: Para análisis avanzado
 # matplotlib>=3.7.0  # Descomentar si quieres gráficos
 # ta>=0.11.0         # Descomentar si quieres más indicadores técnicos

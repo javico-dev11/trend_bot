@@ -42,6 +42,7 @@ if __name__ == "__main__":
         
         if not results:
             print("\n❌ No se pudo realizar el análisis")
+            print("💡 Esta moneda puede ser demasiado nueva o no tener suficientes datos históricos")
             exit(1)
         
         # Análisis detallado de 15 minutos
@@ -50,24 +51,29 @@ if __name__ == "__main__":
         print(f"{'='*60}\n")
         
         df = detector.get_ohlcv_data(symbol, '15m', limit=200)
-        if df is not None:
+        if df is not None and len(df) >= 50:
             df = detector.calculate_indicators(df)
             trend = detector.identify_trend(df)
             
-            # Mostrar últimas 5 velas
-            print("📈 Últimas 5 velas:")
-            print(df[['open', 'high', 'low', 'close', 'volume']].tail())
-            print()
-            
-            # Mostrar indicadores actuales
-            print("🔍 Indicadores actuales:")
-            last_row = df.iloc[-1]
-            print(f"   EMA 9: ${last_row['ema_9']:.4f}")
-            print(f"   EMA 21: ${last_row['ema_21']:.4f}")
-            print(f"   EMA 50: ${last_row['ema_50']:.4f}")
-            print(f"   RSI: {last_row['rsi']:.2f}")
-            print(f"   MACD: {last_row['macd']:.4f}")
-            print(f"   ADX: {last_row['adx']:.2f}")
+            if trend is not None:
+                # Mostrar últimas 5 velas
+                print("📈 Últimas 5 velas:")
+                print(df[['open', 'high', 'low', 'close', 'volume']].tail())
+                print()
+                
+                # Mostrar indicadores actuales
+                print("🔍 Indicadores actuales:")
+                last_row = df.iloc[-1]
+                print(f"   EMA 9: ${last_row['ema_9']:.4f}")
+                print(f"   EMA 21: ${last_row['ema_21']:.4f}")
+                print(f"   EMA 50: ${last_row['ema_50']:.4f}")
+                print(f"   RSI: {last_row['rsi']:.2f}")
+                print(f"   MACD: {last_row['macd']:.4f}")
+                print(f"   ADX: {last_row['adx']:.2f}")
+            else:
+                print("⚠️  No hay suficientes datos para análisis detallado")
+        else:
+            print("⚠️  No hay suficientes datos históricos en el timeframe de 15m")
         
     except Exception as e:
         print(f"❌ Error en el análisis: {e}")
